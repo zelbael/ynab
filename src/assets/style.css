@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -9,13 +9,13 @@
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #ffe6f0; 
   display: flex; 
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
   font-size: 18px;
 }
 
@@ -27,12 +27,14 @@ body {
 h1 {
   letter-spacing: 1px;
   margin: 0;
+  color: #ff80ab; /* Pink heading color */
 }
 
 h3 {
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid #ff80ab; /* Pink border */
   padding-bottom: 10px;
   margin: 40px 0 10px;
+  color: #ff80ab; /* Pink color */
 }
 
 h4 {
@@ -47,6 +49,7 @@ h4 {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  border-radius: 10px; /* Rounded corners */
 }
 
 .inc-exp-container > div {
@@ -65,7 +68,7 @@ h4 {
 }
 
 .money.plus {
-  color: #2ecc71;
+  color: #ff80ab; /* Pink color */
 }
 
 .money.minus {
@@ -79,7 +82,7 @@ label {
 
 input[type='text'],
 input[type='number'] {
-  border: 1px solid #dedede;
+  border: 1px solid #ff80ab; /* Pink border */
   border-radius: 2px;
   display: block;
   font-size: 16px;
@@ -89,7 +92,7 @@ input[type='number'] {
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
+  background-color: #ff80ab; /* Pink button color */
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
@@ -98,6 +101,7 @@ input[type='number'] {
   margin: 10px 0 30px;
   padding: 10px;
   width: 100%;
+  border-radius: 5px; /* Rounded corners */
 }
 
 .btn:focus,
@@ -120,10 +124,11 @@ input[type='number'] {
   position: relative;
   padding: 10px;
   margin: 10px 0;
+  border-radius: 5px; /* Rounded corners */
 }
 
 .list li.plus {
-  border-right: 5px solid #2ecc71;
+  border-right: 5px solid #ff80ab; /* Pink border */
 }
 
 .list li.minus {
@@ -144,6 +149,7 @@ input[type='number'] {
   transform: translate(-100%, -50%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 5px; /* Rounded corners */
 }
 
 .list li:hover .delete-btn {
