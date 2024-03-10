@@ -1,6 +1,9 @@
 # ynab
 # You Need A Budget: Expense Tracker
 
+<img width="528" alt="Screenshot 2024-03-10 at 3 59 33 PM" src="https://github.com/zelbael/ynab/assets/127542906/4864fda9-05d0-4faa-bb6b-882cea924f32">
+
+
 Expense Tracker is a simple web application that helps users track their income and expenses. It allows users to add, edit, and delete transactions, and provides a balance overview.
 
 ## Features
