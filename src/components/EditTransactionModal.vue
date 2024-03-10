@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <h3>History</h3>
-    <ul id="list" class="list">
-      <li
-        v-for="transaction in transactions"
-        :key="transaction.id"
-        :class="transaction.amount < 0 ? 'minus' : 'plus'"
-      >
-        {{ transaction.text }} <span>${{ transaction.amount }}</span>
-        <button class="edit-btn" @click="openEditModal(transaction)">
-          Edit
-        </button>
-        <button class="delete-btn" @click="deleteTransaction(transaction.id)">
-          x
-        </button>
-      </li>
-    </ul>
-    <EditTransactionModal :transaction="selectedTransaction" v-if="isEditModalOpen" @close="closeEditModal" @update="handleTransactionEdited" />
-  </div>
+  <h3>History</h3>
+  <ul id="list" class="list">
+    <li
+      v-for="transaction in transactions"
+      :key="transaction.id"
+      :class="transaction.amount < 0 ? 'minus' : 'plus'"
+    >
+      {{ transaction.text }} <span>${{ transaction.amount }}</span>
+      <button class="edit-btn" @click="openEditModal(transaction)">
+        Edit
+      </button>
+      <button class="delete-btn" @click="deleteTransaction(transaction.id)">
+        x
+      </button>
+    </li>
+  </ul>
+  <EditTransactionModal :transaction="selectedTransaction" v-if="isEditModalOpen" @close="closeEditModal" @update="handleTransactionEdited" />
 </template>
 
 <script setup>

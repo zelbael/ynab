@@ -1,13 +1,17 @@
 <template>
-  <Header />
-  <div class="container">
-    <Balance :total="total" />
-    <IncomeExpenses :income="+income" :expenses="+expenses" />
-    <TransactionList
-      :transactions="transactions"
-      @transactionDeleted="handleTransactionDeleted"
-    />
-    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+  <div>
+    <Header />
+    <div class="container">
+      <Balance :total="total" />
+      <IncomeExpenses :income="+income" :expenses="+expenses" />
+      <TransactionList
+        :transactions="transactions"
+        @transactionDeleted="handleTransactionDeleted"
+        @transactionEdited="handleTransactionEdited"
+      />
+      <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+    </div>
+    <EditTransactionModal :transaction="selectedTransaction" v-if="isEditModalOpen" @close="closeEditModal" @update="handleTransactionEdited" />
   </div>
 </template>
 
@@ -17,13 +21,12 @@ import Balance from './components/Balance.vue';
 import IncomeExpenses from './components/IncomeExpenses.vue';
 import TransactionList from './components/TransactionList.vue';
 import AddTransaction from './components/AddTransaction.vue';
+import EditTransactionModal from './components/EditTransactionModal.vue';
 
 import { ref, computed, onMounted } from 'vue';
-
 import { useToast } from 'vue-toastification';
 
 const toast = useToast();
-
 const transactions = ref([]);
 
 onMounted(() => {
@@ -70,9 +73,14 @@ const handleTransactionSubmitted = (transactionData) => {
   toast.success('Transaction added.');
 };
 
-// generate unique ID
-const generateUniqueId = () => {
-  return Math.floor(Math.random() * 1000000);
+// handle editing transaction
+const handleTransactionEdited = (editedTransaction) => {
+  const index = transactions.value.findIndex((t) => t.id === editedTransaction.id);
+  transactions.value[index] = { ...editedTransaction };
+
+  saveTransactionsToLocalStorage();
+
+  toast.success('Transaction edited.');
 };
 
 // delete transaction
@@ -86,8 +94,26 @@ const handleTransactionDeleted = (id) => {
   toast.success('Transaction deleted.');
 };
 
+// generate unique ID
+const generateUniqueId = () => {
+  return Math.floor(Math.random() * 1000000);
+};
+
 // Save transactions to local storage
 const saveTransactionsToLocalStorage = () => {
   localStorage.setItem('transactions', JSON.stringify(transactions.value));
+};
+
+// edit transaction modal
+const isEditModalOpen = ref(false);
+const selectedTransaction = ref(null);
+
+const openEditModal = (transaction) => {
+  selectedTransaction.value = transaction;
+  isEditModalOpen.value = true;
+};
+
+const closeEditModal = () => {
+  isEditModalOpen.value = false;
 };
 </script>
