@@ -16,8 +16,6 @@ Expense Tracker is a simple web application that helps users track their income 
 
 - **Vue.js:** The frontend of the application is built using Vue.js, a progressive JavaScript framework.
 - **Vue Toastification:** For displaying toast messages for user actions.
-- **SCSS:** Styling is done using SCSS preprocessor.
-- **LocalStorage API:** Used to store transactions locally in the browser.
 
 ## Project Structure
 
